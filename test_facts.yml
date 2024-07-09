@@ -7,4 +7,5 @@
     - name: Output Variables
       ansible.builtin.set_stats:
         data:
-          check_name: "{{ ansible_facts.distribution_version }}"
+          check_name: "{{ ansible_facts.service_mgr }}"
+          check_status: "{{ check_status }}"
