@@ -5,4 +5,4 @@
   tasks:
     - name: print variables
       debug:
-        msg: "{{check_name}}"
+        msg: "{{check_name}}:{{check_status}}"
