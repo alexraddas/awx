@@ -1,4 +1,0 @@
----
-tasks:
-  - name: Collect Facts
-    ansible.builtin.setup:
