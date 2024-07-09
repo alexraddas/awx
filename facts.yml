@@ -1,3 +1,4 @@
 ---
-- name: Collect Facts
-  ansible.builtin.setup:
+tasks:
+  - name: Collect Facts
+    ansible.builtin.setup:
