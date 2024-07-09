@@ -1,0 +1,8 @@
+---
+- hosts: all
+  vars:
+    - check_name: <check_name>
+  tasks:
+    - name: print variables
+      debug:
+        msg: "{{check_name}}"
