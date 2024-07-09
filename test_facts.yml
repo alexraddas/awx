@@ -1,5 +1,4 @@
 # test_facts.yml
 ---
-- name: "Collect Facts"
-  hosts: all
+- name: Collect Facts
   ansible.builtin.setup:
