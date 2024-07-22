@@ -1,0 +1,13 @@
+# device_provisioning.yml
+---
+- name: "Device Provisioning"
+  hosts: all
+  tasks:
+    - name: "Validate Variables"
+      ansible.builtin.assert:
+        that:
+          - name is defined
+          - status is defined
+    - name: "Print Variables"
+      ansible.builtin.debug:
+        msg: "Name: {{ name }}, Status: {{ status }}"
