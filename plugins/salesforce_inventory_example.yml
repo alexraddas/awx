@@ -1,0 +1,20 @@
+plugin: "network.inventory.salesforce"
+org_username:
+org_password:
+org_token:
+org_object: Asset
+# The object_schema is a dictionary that maps the object fields to groups and host variables
+object_schema:
+  Name:
+    types: [variable]
+    value: name
+    host: True
+  Status:
+    types: [variable, group]
+    value: status
+  SerialNumber:
+    types: [variable, group]
+    value: serial_number
+  UsageEndDate:
+    types: [variable]
+    value: end_of_life

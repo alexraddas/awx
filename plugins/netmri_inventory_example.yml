@@ -1,0 +1,43 @@
+plugin: "network.inventory.netmri"
+username:
+password:
+netmri_host:
+# Use any Device key to group based on the value of the output
+groups:
+  - DeviceModel
+  - DeviceVendor
+  - DeviceType
+  - DeviceSysContact
+# Device Keys
+# - DataSourceID
+# - DeviceAddlInfo
+# - DeviceAssurance
+# - DeviceChangedCols
+# - DeviceDNSName
+# - DeviceEndTime
+# - DeviceFirstOccurrenceTime
+# - DeviceID
+# - DeviceIPDotted
+# - DeviceIPNumeric
+# - DeviceMAC
+# - DeviceModel
+# - DeviceName
+# - DeviceNetBIOSName
+# - DeviceOUI
+# - DeviceStartTime
+# - DeviceSysContact
+# - DeviceSysDescr
+# - DeviceSysLocation
+# - DeviceSysName
+# - DeviceTimestamp
+# - DeviceType
+# - DeviceUniqueKey
+# - DeviceVendor
+# - DeviceVersion
+# - InfraDeviceInd
+# - MgmtServerDeviceID
+# - NetworkDeviceInd
+# - ParentDeviceID
+# - VirtualInd
+# - VirtualNetworkID
+# - _class
