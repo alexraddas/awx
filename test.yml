@@ -1,0 +1,19 @@
+---
+- name: Run date and hostname commands locally
+  hosts: localhost
+  tasks:
+    - name: Get current date and time
+      command: date
+      register: date_output
+
+    - name: Display the date and time
+      debug:
+        msg: "Current date and time: {{ date_output.stdout }}"
+
+    - name: Get hostname
+      command: hostname
+      register: hostname_output
+
+    - name: Display the hostname
+      debug:
+        msg: "Hostname: {{ hostname_output.stdout }}"
