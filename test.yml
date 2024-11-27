@@ -1,5 +1,5 @@
 ---
-- name: Run date and hostname commands locally
+- name: Run date, hostname, pwd, and ls commands locally
   hosts: localhost
   tasks:
     - name: Get current date and time
@@ -10,10 +10,18 @@
       debug:
         msg: "Current date and time: {{ date_output.stdout }}"
 
-    - name: Get hostname
-      command: hostname
-      register: hostname_output
+    - name: Get current working directory
+      command: pwd
+      register: pwd_output
 
-    - name: Display the hostname
+    - name: Display the working directory
       debug:
-        msg: "Hostname: {{ hostname_output.stdout }}"
+        msg: "Current working directory: {{ pwd_output.stdout }}"
+
+    - name: List all files and folders in the current directory
+      command: ls -la
+      register: ls_output
+
+    - name: Display the list of files and folders
+      debug:
+        msg: "Files and folders: {{ ls_output.stdout }}"
