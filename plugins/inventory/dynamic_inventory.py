@@ -77,7 +77,7 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
             )
             cursor = conn.cursor()
         except Exception as e:
-            raise AnsibleError(f"Failed to connect to the database: {e}\n{db_host},{db_port}")
+            raise AnsibleError(f"Failed to connect to the database: {e}\n{config}")
 
         # Fetch hosts and their tags from the database
         try:
