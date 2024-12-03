@@ -62,7 +62,7 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
         # Get database connection parameters from the configuration
         db_name = config.get("db_name", os.environ.get("db_name"))
         db_user = config.get("db_user", os.environ.get("db_user"))
-        db_password = config.get("db_password", os.environ.get("db_pass"))
+        db_password = config.get("db_password", os.environ.get("db_password"))
         db_host = config.get("db_host", os.environ.get("db_host"))
         db_port = config.get("db_port", os.environ.get("db_port"))
 
