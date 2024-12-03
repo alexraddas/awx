@@ -52,8 +52,7 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
         db_password = os.environ.get("db_password")
         db_host = os.environ.get("db_host")
         db_port = os.environ.get("db_port")
-        group_by_tags = ["model", "manufacturer","os_version","environment", "device_type", "role"]
-         
+        # group_by_tags = ["model", "manufacturer","os_version","environment", "device_type", "role"]
 
         # Connect to the PostgreSQL database
         try:
@@ -83,12 +82,12 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
             for key, value in tags.items():
                 self.inventory.set_variable(host, key, value)
 
-            # Group hosts by specified tags
-            for tag in group_by_tags:
-                if tag in tags:
-                    group_name = tags[tag]
-                    self.inventory.add_group(group_name)
-                    self.inventory.add_host(host, group_name)
+            # # Group hosts by specified tags
+            # for tag in group_by_tags:
+            #     if tag in tags:
+            #         group_name = tags[tag]
+            #         self.inventory.add_group(group_name)
+            #         self.inventory.add_host(host, group_name)
 
         # Close the cursor and connection
         cursor.close()
