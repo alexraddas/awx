@@ -14,10 +14,17 @@ DOCUMENTATION = """
             description: The name of the plugin
             required: true
             choices: ['dynamic_inventory']
+        group_by_tags:
+            description: List of tags to group hosts by
+            required: false
+            type: list
 """
 
 EXAMPLES = """
 plugin: dynamic_inventory
+group_by_tags:
+  - environment
+  - role
 """
 
 
@@ -45,6 +52,7 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
         db_password = os.environ.get("db_password")
         db_host = os.environ.get("db_host")
         db_port = os.environ.get("db_port")
+        group_by_tags = self.get_option("group_by_tags") or []
 
         # Connect to the PostgreSQL database
         try:
@@ -73,6 +81,13 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
             self.inventory.add_host(host)
             for key, value in tags.items():
                 self.inventory.set_variable(host, key, value)
+
+            # Group hosts by specified tags
+            for tag in group_by_tags:
+                if tag in tags:
+                    group_name = tags[tag]
+                    self.inventory.add_group(group_name)
+                    self.inventory.add_host(host, group_name)
 
         # Close the cursor and connection
         cursor.close()
