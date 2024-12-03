@@ -52,7 +52,8 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
         db_password = os.environ.get("db_password")
         db_host = os.environ.get("db_host")
         db_port = os.environ.get("db_port")
-        group_by_tags = self.get_option("group_by_tags") or []
+        group_by_tags = ["model", "manufacturer","os_version","environment", "device_type", "role"]
+         
 
         # Connect to the PostgreSQL database
         try:
