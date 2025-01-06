@@ -1,0 +1,9 @@
+---
+- name: Test Survey Inputs Runbook
+  hosts: localhost
+  vars:
+    - username: <username>
+  tasks:
+    - name: Display the Survey Variables
+      debug:
+        msg: "{{username}}"
