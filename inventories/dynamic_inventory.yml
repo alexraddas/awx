@@ -1,7 +1,7 @@
-plugin: dynamic_inventory
-group_by_tags:
-  - manufacturer
-  - model
-  - os_version
-  - environment
-  - device_type
+# plugin: dynamic_inventory
+# group_by_tags:
+#   - manufacturer
+#   - model
+#   - os_version
+#   - environment
+#   - device_type
