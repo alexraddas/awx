@@ -2,23 +2,23 @@
 - name: Disco Playbook
   hosts: localhost
   vars:
-    usernames: "{{ <usernames> | trim | split(',') | list }}"
+    discousers: "{{ usernames | split(',') | map('trim') | list }}"
     activeusers:
       - fred
       - bob
   tasks:
-    - name: Disco Usernames
+    - name: Get Users to Disco
       ansible.builtin.set_fact:
-        discousers: "{{ usernames | select('in', activeusers) | list }}"
+        disco_conn_users: "{{ discousers | select('in', activeusers) | list }}"
     - name: Disco Debug Users
       ansible.builtin.debug:
-        msg: "{{ usernames }}"
+        msg: "{{ discousers }}"
     - name: Disco Debug Disco Users
       ansible.builtin.debug:
-        msg: "{{ discousers }}"
+        msg: "{{ disco_conn_users }}"
     - name: Disco Stats
       ansible.builtin.set_stats:
         data:
           response:
             usernames: "{{ usernames }}"
-            discousers: "{{ discousers }}"
+            discousers: "{{ disco_conn_users }}"
