@@ -1,0 +1,24 @@
+---
+- name: Disco Playbook
+  hosts: localhost
+  vars:
+    usernames: <usernames>
+    activeusers:
+      - fred
+      - bob
+  tasks:
+    - name: Disco Usernames
+      ansible.builtin.set_fact:
+        discousers: "{{ usernames | select('in', activeusers) | list }}"
+    - name: Disco Debug Users
+      ansible.builtin.debug:
+        msg: "{{ usernames }}"
+    - name: Disco Debug Disco Users
+      ansible.builtin.debug:
+        msg: "{{ discousers }}"
+    - name: Disco Stats
+      ansible.builtin.set_stats:
+        data:
+          response:
+            usernames: "{{ usernames }}"
+            discousers: "{{ discousers }}"
