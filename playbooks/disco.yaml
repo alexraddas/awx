@@ -2,7 +2,7 @@
 - name: Disco Playbook
   hosts: localhost
   vars:
-    usernames: <usernames>
+    usernames: "{{ <usernames> | trim | split(',') | list }}"
     activeusers:
       - fred
       - bob
