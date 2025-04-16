@@ -1,6 +1,6 @@
 ---
 - name: Disco Playbook
-  hosts: localhost
+  hosts: all
   vars:
     discousers: "{{ usernames | split(',') | map('trim') | list }}"
     activeusers:
