@@ -6,5 +6,5 @@
   tasks:
     - name: Display the data
       debug:
-        msg: "{{return_json_data"
+        msg: "{{return_json_data}}"
 
