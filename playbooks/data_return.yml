@@ -1,0 +1,10 @@
+---
+- name: Return JSON Data Playbook
+  hosts: localhost
+  vars:
+    return_json_data: <return_json_data>
+  tasks:
+    - name: Display the data
+      debug:
+        msg: "{{return_json_data"
+
